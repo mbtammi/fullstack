@@ -1,0 +1,52 @@
+Teht 0.4
+
+Note over selain: 
+Käyttäjä kirjoittaa input:in 
+Käyttäjä painaa submit
+End note
+
+Selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Palvelin-->selain: [{ content: "kirjoitin tähän jotain", date: "24.10.2022"}, …]
+
+Note over selain: 
+Selain suorittaa tapahtuman käsittelijän
+Joka renderöi muistiinpanot näytölle
+End note
+
+Teht 0.5
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+palvelin-->selain: main.js
+
+note over selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "HTML on helppoa", date: "2019-01-01" }, ...]
+
+Note over selain: 
+Selain suorittaa tapahtuman käsittelijän
+Joka renderöi muistiinpanot näytölle
+End note
+
+Teht 0.6
+
+Note over selain: 
+Käyttäjä kirjoittaa input:in 
+Käyttäjä painaa submit
+End note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "Uusi hieno viesti", date: "2022-10-24" }, ...]
+
+note over selain:
+selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+end note
+
