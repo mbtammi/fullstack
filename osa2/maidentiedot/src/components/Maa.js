@@ -48,11 +48,6 @@ const Maa = ({ maa }) => {
         <p>capital: {maa.capital}</p>
         <p>population: {maa.population}</p>
         <h2>Spoken languages</h2>
-        {/* <ul>
-          {maa.languages.map((language) => (
-            <li key={language.name}>{language.name}</li>
-          ))}
-        </ul> */}
         <img src={maa.flags.png} alt="Country flag"></img>
         <h2>Weather in {maa.capital}</h2>
         <p>temperature: {currentWeather.main.temp}° Celcius</p>
@@ -60,15 +55,9 @@ const Maa = ({ maa }) => {
           src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
           alt="Weather icon"
         ></img>
-        {/* <p>
-          wind: {currentWeather.wind_speed} mph direction{" "}
-          {currentWeather.wind_dir}
-        </p> */}
       </div>
     );
   }
-
-  // const currentWeather = saa[0].current;
 
   return (
     <div>
@@ -81,14 +70,6 @@ const Maa = ({ maa }) => {
       <img src={maa.flags.png} alt="alt"></img>
 
       <h2>Weather in {maa.capital}</h2>
-      {/* <p>{saa.main.temp}</p> */}
-      {/* <p>temperature: {currentWeather.temperature}° Celcius </p> */}
-
-      {/* <ul>
-        {maa.languages.map((language) => (
-          <li key={language.name}>{language.name}</li>
-        ))}
-      </ul> */}
     </div>
   );
 };

@@ -18,7 +18,6 @@ const Sisalto = ({ maat, setMaat }) => {
   } else {
     console.log(maat[0]);
     return <Maa maa={maat[0]} />;
-    // <Country country={maat[0]} />;
   }
 };
 

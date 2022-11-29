@@ -7,15 +7,6 @@ function App() {
   const [naytaMaat, setNaytaMaat] = useState(maat);
   const [filtteri, setFiltteri] = useState("");
 
-  // const etsiMaa = (event) => {
-  //   console.log(event.target.value);
-  //   var montaMaata = maat.filter((maa) =>
-  //     maa.name.common.includes(event.target.value)
-  //   );
-  //   setNaytaMaat(montaMaata);
-  //   console.log("testimontakoMaataOn" + montaMaata.length);
-  // };
-
   const etsiMaa = (event) => {
     setFiltteri(event.target.value);
     if (filtteri) {

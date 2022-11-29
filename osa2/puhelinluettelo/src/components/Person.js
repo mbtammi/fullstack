@@ -2,7 +2,7 @@ const Person = ({ person, handleClick }) => {
   return (
     <li>
       {person.name}, {person.number}{" "}
-      <button onClick={handleClick}>testiPoisto</button>
+      <button onClick={handleClick}>Poistaminen</button>
     </li>
   );
 };
