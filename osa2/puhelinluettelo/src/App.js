@@ -57,31 +57,48 @@ const App = () => {
       if (
         window.confirm(
           newName +
-            "is already added to phonebook, replace the old number with a new one?"
+            " is already added to phonebook, replace the old number with a new one?"
         )
       ) {
-        puhelinPalvelu.update(giveMeIdOf(newName), nameObjekti).then(() => {
-          puhelinPalvelu.getAll().then((initialNumbers) => {
-            setShowAll(initialNumbers);
-          });
+        puhelinPalvelu
+          .update(giveMeIdOf(newName), nameObjekti)
+          .then((returnedObjekt) => {
+            console.log(`${returnedObjekt.name} successfully updated`);
+            puhelinPalvelu.getAll().then((initialNumbers) => {
+              setShowAll(initialNumbers);
+            });
 
-          setNewName("");
-          setNewNumber("");
-          setMessage(`${nameObjekti.name} was successfully updated`);
+            setNewName("");
+            setNewNumber("");
+            setMessage(`${nameObjekti.name} was successfully updated`);
+            setTimeout(() => {
+              setMessage(null);
+            }, 3000);
+          });
+      }
+    } else {
+      puhelinPalvelu
+        .create(nameObjekti)
+        .then((returnedObjekti) => {
+          setPersons(persons.concat(returnedObjekti));
+          setShowAll(persons.concat(returnedObjekti));
+          setMessage(`${nameObjekti.name} was successfully added`);
           setTimeout(() => {
             setMessage(null);
           }, 3000);
+        })
+        .catch((error) => {
+          // pääset käsiksi palvelimen palauttamaan virheilmoitusolioon näin
+          setMessageStyle("error");
+          setMessage(
+            `Name ${nameObjekti.name} or Number ${nameObjekti.number} is invalid.`
+          );
+          setTimeout(() => {
+            setMessageStyle("notif");
+            setMessage(null);
+          }, 4000);
+          console.log(error.response.data);
         });
-      }
-    } else {
-      puhelinPalvelu.create(nameObjekti).then((returnedObjekti) => {
-        setPersons(persons.concat(returnedObjekti));
-        setShowAll(persons.concat(returnedObjekti));
-        setMessage(`${nameObjekti.name} was successfully added`);
-        setTimeout(() => {
-          setMessage(null);
-        }, 3000);
-      });
     }
     setNewName("");
     setNewNumber("");

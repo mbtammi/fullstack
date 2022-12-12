@@ -1,24 +1,20 @@
 import Note from "./components/Note";
 import Notification from "./components/Notification";
-import axios from "axios";
 import { useState, useEffect } from "react";
 
 import notePalvelu from "./services/notes";
-
-// const Note = ({ note }) => {
-//   return <li>{note.content}</li>;
-// };
 
 const App = () => {
   // muista "NPM RUN SERVER"
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
   const [showAll, setShowAll] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("some error happened...");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     notePalvelu.getAll().then((initialNotes) => {
       setNotes(initialNotes);
+      setErrorMessage(null);
     });
   }, []);
 
