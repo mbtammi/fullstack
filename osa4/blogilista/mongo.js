@@ -29,7 +29,7 @@ const blog = new Blog({
 Blog.find({}).then((result) => {
   result.forEach((blog) => {
     console.log(blog)
-  })
+  })  
   mongoose.connection.close()
 })
 

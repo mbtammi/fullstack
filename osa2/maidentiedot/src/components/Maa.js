@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Weather from "./Weather";
+// import Weather from "./Weather";
 
 const Maa = ({ maa }) => {
   const key = "0771dc1ca9dab7ca382da4d53535bdb5";
@@ -24,9 +24,9 @@ const Maa = ({ maa }) => {
       .get(url.href)
       .then((response) => {
         console.log("answer" + response.data);
-        //         console.log(
-        //           `Current temperature in ${response.data.location} is ${response.data.current}℃`
-        //         );'
+                console.log(
+                  `Current temperature in ${response.data.location} is ${response.data.current}℃`
+                );
         setSaa([response.data]);
       })
       .catch((error) => {

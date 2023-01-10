@@ -54,7 +54,6 @@ blogsRouter.delete('/:id',userExtractor, async (request, response) => {
 
   if ( blog.user.toString() === user._id.toString() ) {
     await Blog.findByIdAndRemove(request.params.id)
-    console.log("Onnistuiko poisto?")
     response.status(204).end()
   } else {
     return response.status(401).json({ error: 'You have no access to delete this blog' })
